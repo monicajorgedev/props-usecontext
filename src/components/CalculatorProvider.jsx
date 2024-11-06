@@ -7,7 +7,7 @@ export const CalculatorProvider = ({ children }) => {
     const [numbers, setNumbers] = useState([])
     const [currentNumber,setCurrentNumber]= useState(0)
     const [result, setResult] = useState(0)
-
+ 
     const addNumber = (number) => {
         setCurrentNumber(number)
         setNumbers([...numbers, number])
@@ -16,7 +16,6 @@ export const CalculatorProvider = ({ children }) => {
 
     const sumNumbers = () => {
         setResult(numbers.reduce((sum, number) => sum + number, 0 ))
-        return result
     }
 
     const resetNumbers = () => {
@@ -26,7 +25,7 @@ export const CalculatorProvider = ({ children }) => {
 
 
     return (
-        <CalculatorContext.Provider value={{numbers, currentNumber,addNumber,result, sumNumbers, resetNumbers}} >
+        <CalculatorContext.Provider value={{numbers, currentNumber,addNumber, sumNumbers, resetNumbers, result}} >
             {children}
         </CalculatorContext.Provider>
 
